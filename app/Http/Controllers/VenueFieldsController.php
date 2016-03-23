@@ -21,7 +21,8 @@ class VenueFieldsController extends Controller {
         if (!$venue) {
             return response()->json(["message" => "Venue does not exist.", "code" => 404 ], 404);
         }
-        return response()->json(["data" => $venue->fields->all()], 200);
+        // $venue->fields does not exist and it's throwing and internal server error
+        return response()->json(["data" => $venue->fields], 200);
 	}
 
 
